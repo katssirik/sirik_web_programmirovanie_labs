@@ -36,10 +36,11 @@ function generateMenu() {
         {href: '', text: 'Контакты'},
         {href: '', text: 'Доставка'},
         {href: '', text: 'Акции'},
-        {href: 'about-us.html', text: 'О нас'},
+        {href: '', text: 'О нас'},
+        {href: '', text: 'Скидки дня'},
     ]
     for(let i=0; i<items.length; i++){
-        let link = document.createElement('li');
+        let link = document.createElement('a');
         link.innerText=items[i].text;
         link.href=items[i].href;
         if(items[i].href=='') {
