@@ -27,10 +27,36 @@ function search() {
         card.style.backgroundColor = '';
     }, 2000);
 }
+function generateMenu() {
+    let menu = document.querySelector('nav.main-menu ul');
+    menu.innerHTML='';
+
+    let items = [
+        {href: 'index.html', text: 'Товары'},
+        {href: '', text: 'Контакты'},
+        {href: '', text: 'Доставка'},
+        {href: '', text: 'Акции'},
+        {href: 'about-us.html', text: 'О нас'},
+    ]
+    for(let i=0; i<items.length; i++){
+        let link = document.createElement('li');
+        link.innerText=items[i].text;
+        link.href=items[i].href;
+        if(items[i].href=='') {
+            link.addEventListener('click', notReadyAlert);
+        }
+
+        let menuItem=document.createElement('li');
+        menuItem.appendChild(link);
+
+        menu.appendChild(menuItem);
+    }   
+}
 function loader() {
     let searchbox = document.getElementById('search');
     searchbox.addEventListener('keydown', function(key) {
         if (key.key == 'Enter')
             search();
     });
+    generateMenu();
 }
